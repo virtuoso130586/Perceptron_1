@@ -1,5 +1,6 @@
 import numpy as np
-
+import pandas as pd
+import joblib
 class Perceptron:
   def __init__(self, eta, epochs):
     self.weights = np.random.randn(3) * 1e-4 # SMALL WEIGHT INIT

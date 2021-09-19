@@ -1,6 +1,13 @@
 import pandas as pd
 from utils.model import Perceptron
 from utils.all_utils import prepare_data
+import logging
+import os
+
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s] %(message)s"
+log_dir = "logs"
+os.makedirs(log_dir, exist_ok=True)
+logging.basicConfig(filename=os.path.join(log_dir,"running_logs.log"),level=logging.INFO, format=logging_str)
 
 
 
@@ -12,7 +19,7 @@ AND = {
 
 df = pd.DataFrame(AND)
 X,y = prepare_data(df)
-
+logging.info(f"x-{X} ,y-{y}")
 ETA = 0.3 # 0 and 1
 EPOCHS = 10
 
